@@ -15,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-@Tag(name = "Used Cars", description = "The Used Cars API")
+@Tag(name = "Used Cars", description = "Webservices to manage used cars")
 @RestController
 @RequestMapping("/used-cars")
 public class UsedCarsController {
