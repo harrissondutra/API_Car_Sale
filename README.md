@@ -6,10 +6,29 @@
 ### ***Entidades:*** <br />
 Usuários<br />
 Carros Usados<br />
+<br />
 
-[Documentação Aqui](https://api-car-sale.onrender.com/swagger-ui/index.html)
+## ***Webservices:***
+
+***Veículos:***
+- Caradastro de veículos
+- Busca principal filtrada por preço
+- Buscas filtrada por marca
+- Busca filtrada por ano
+- Atualização de cadastro de veículo
+- "Soft delete" Para exclusão de veículos
 <br />
+
+***Usuários:*** <br />
+- Cadastro de Usuários
+- Autenticação
 <br />
+
+[Documentação da API Aqui](https://api-car-sale.onrender.com/swagger-ui/index.html)
+
+
+##### **Atenção** - O Swagger pode demorar um pouco a iniciar, pois o servidor Host, precisa ser iniciado.<br />
+****Como trata-se de um serviço gratuito, pode levar um tempo maior, no primeiro acesso.***
 
 ### ***Tecnologias utilizadas:***
 - Linguagem Java  <br />
