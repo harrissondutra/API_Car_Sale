@@ -24,7 +24,7 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("API Car Used Sale")
                         .version("v1")
-                        .description("Documentação da API Car Used Sale\n\nURL Base: https://")
+                        .description("Documentação da API Car Used Sale\n\nURL Base: https://apicarsale-production.up.railway.app")
                         .termsOfService("http://swagger.io/terms/")
                         .license(new License().name("Apache 2.0").url("http://springdoc.org")));
     }
@@ -53,45 +53,6 @@ public class SwaggerConfig {
             });
         };
     }
-
-   /* @Bean
-    public GroupedOpenApi api(RequestMappingHandlerMapping handlerMapping) {
-        return GroupedOpenApi.builder()
-                .group("api")
-                .packagesToScan("com.estudo.api_med_voll.controller")
-                .addOpenApiCustomizer(filterControllers(handlerMapping))
-                .build();
-    }
-
-    @Bean
-    public OpenApiCustomizer customizer() {
-        return openApi -> {
-            openApi.getComponents().getSchemas().remove("UnwantedModelName");  // Remover modelos indesejados
-        };
-    }
-
-    @Bean
-    public OpenApiCustomizer filterControllers(RequestMappingHandlerMapping handlerMapping) {
-        return openApi -> {
-            Map<RequestMappingInfo, HandlerMethod> handlerMethods = handlerMapping.getHandlerMethods();
-            handlerMethods.forEach((requestMappingInfo, handlerMethod) -> {
-                if (!handlerMethod.getBeanType().isAnnotationPresent(Tag.class)) {
-                    Set<String> patterns = requestMappingInfo.getPatternsCondition() != null ? requestMappingInfo.getPatternsCondition().getPatterns() : null;
-                    if (patterns != null) {
-                        patterns.forEach(openApi.getPaths()::remove);
-                    }
-                }
-            });
-        };
-    }
-
-    private void filterPathItemOperations(PathItem pathItem) {
-        pathItem.readOperations().removeIf(operation -> !hasOperationAnnotation(operation));
-    }
-
-    private boolean hasOperationAnnotation(Operation operation) {
-        return operation.getExtensions() != null && operation.getExtensions().containsKey("x-operation");
-    }*/
 }
 
 
