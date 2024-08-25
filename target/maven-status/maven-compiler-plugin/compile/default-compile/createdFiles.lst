@@ -1,0 +1,13 @@
+com\carsale\cars\service\UsedCarsService.class
+com\carsale\cars\service\UserService.class
+com\carsale\cars\model\UsedCars.class
+com\carsale\cars\controller\UserController.class
+com\carsale\cars\controller\UsedCarsController.class
+com\carsale\cars\repository\UsedCarsRepository.class
+com\carsale\cars\infra\swagger\SwaggerConfig.class
+com\carsale\cars\repository\UserRepository.class
+com\carsale\cars\model\records\UsedCarsData.class
+com\carsale\cars\model\UsedCars$UsedCarsBuilder.class
+com\carsale\cars\model\User$UserBuilder.class
+com\carsale\cars\model\User.class
+com\carsale\cars\CarSaleApplication.class
