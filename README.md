@@ -3,15 +3,15 @@
 # <img align="center" alt="Java" height="80" width="80" src="https://drive.google.com/uc?export=view&id=1cPXuoKDHXEGQpBtLRpNHI70F5zV8FPOm"> Api Car Sale
 <br />
 
-> ***Entidades*** <br />
->
+### ***Entidades:*** <br />
 Usuários<br />
 Carros Usados<br />
 
 [Documentação Aqui](https://apizap-production.up.railway.app/swagger-ui/index.html)
+<br />
+<br />
 
-
-### Tecnologias
+### ***Tecnologias utilizadas:***
 - Linguagem Java  <br />
 - Framework Spring
 - Docker  <br />
