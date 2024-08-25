@@ -7,7 +7,7 @@
 Usuários<br />
 Carros Usados<br />
 
-[Documentação Aqui](https://apizap-production.up.railway.app/swagger-ui/index.html)
+[Documentação Aqui](https://api-car-sale.onrender.com/swagger-ui/index.html)
 <br />
 <br />
 
@@ -16,7 +16,7 @@ Carros Usados<br />
 - Framework Spring
 - Docker  <br />
 - Postgres  <br />
-- CI/CD no Railway  <br />
+- Render.com  <br />
 - Documentação via Swagger
 
 
@@ -25,7 +25,7 @@ Carros Usados<br />
    <img align="center" alt="Spring" height="40" width="40" src="https://github.com/harrissondutra/harrissondutra/blob/main/.img/logo-spring.png">
    <img align="center" alt="Postgres" height="40" width="40" src="https://github.com/harrissondutra/harrissondutra/blob/main/.img/postgresql_logo_icon_170835.png">
    <img align="center" alt="Docker" height="50" width="50" src="https://cdn.iconscout.com/icon/free/png-256/free-docker-logo-icon-download-in-svg-png-gif-file-formats--wordmark-programming-langugae-language-pack-logos-icons-1175229.png?f=webp&w=256">
-   <img align="center" alt="Railway" height="50" width="50" src="https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/h3m0hmstlq9maq7t8tyc">
+   <img align="center" alt="Render" height="50" width="50" src="https://cdn.sanity.io/images/34ent8ly/production/ec37a3660704e1fa2b4246c9a01ab34e145194ad-824x824.png">
    <img align="center" alt="Swagger" height="40" width="180" src="https://raw.githubusercontent.com/swagger-api/swagger.io/wordpress/images/assets/SWE-logo-clr.png"> 
 </div>
 
