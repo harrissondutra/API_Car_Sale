@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -38,9 +39,10 @@ public class UsedCarsController {
     @Operation(summary = "List all used cars", description = "List all used cars ordered by price")
     @ApiResponse(responseCode = "200", description = "Used cars listed" )
     @ApiResponse(responseCode = "404", description = "Used cars not found" )
-    @GetMapping("/getAll")
-    public ResponseEntity<Page<UsedCarsData>> listAllUsedCars(@PageableDefault(size = 10, sort = {"price"}, direction = Sort.Direction.ASC) Pageable page) {
-        return ResponseEntity.ok(service.getAll(page));
+    @GetMapping("/getAll/{size}")
+    public ResponseEntity<Page<UsedCarsData>> listAllUsedCars(@PageableDefault(size = 10, sort = {"price"}, direction = Sort.Direction.ASC) Pageable page, @PathVariable int size) {
+        Pageable pageable = PageRequest.of(page.getPageNumber(), size, page.getSort());
+        return ResponseEntity.ok(service.getAll(pageable));
     }
 
     @Operation(summary = "Get a used car by ID", description = "Get a used car by ID")
