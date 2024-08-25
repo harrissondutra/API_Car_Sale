@@ -24,7 +24,7 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("API Car Used Sale")
                         .version("v1")
-                        .description("Documentação da API Car Used Sale\n\nURL Base: https://apicarsale-production.up.railway.app")
+                        .description("Documentação da API Car Used Sale\n\nURL Base: api-car-sale.onrender.com")
                         .termsOfService("http://swagger.io/terms/")
                         .license(new License().name("Apache 2.0").url("http://springdoc.org")));
     }
