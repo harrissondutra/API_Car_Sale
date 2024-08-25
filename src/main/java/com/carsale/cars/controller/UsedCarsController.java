@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,9 +32,9 @@ public class UsedCarsController {
         return ResponseEntity.created(uri).body(new UsedCarsData(usedCars));
     }
 
-    @Operation(summary = "List all used cars", description = "List all used cars")
+    @Operation(summary = "List all used cars", description = "List all used cars ordered by price")
     @GetMapping("/getAll")
-    public ResponseEntity<Page<UsedCarsData>> listAllUsedCars(@PageableDefault(size = 10, sort = {"id"}) Pageable page) {
+    public ResponseEntity<Page<UsedCarsData>> listAllUsedCars(@PageableDefault(size = 10, sort = {"price"}, direction = Sort.Direction.ASC) Pageable page) {
         return ResponseEntity.ok(service.getAll(page));
     }
 
@@ -58,7 +59,6 @@ public class UsedCarsController {
         UsedCars usedCars = service.getById(id);
         service.deleteUsedCar(usedCars);
     }
-
 
 
 }
