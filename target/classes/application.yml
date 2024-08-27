@@ -38,3 +38,8 @@ springdoc:
 server:
   error:
     include-stacktrace: never
+api:
+  security:
+    jwt:
+      secret: ${JWT_SECRET}
+      expiration: ${JWT_EXPIRATION}

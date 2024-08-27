@@ -6,6 +6,7 @@ import com.carsale.cars.service.UsedCarsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,6 +29,7 @@ public class UsedCarsController {
     @Operation(summary = "Create a new used car", description = "Sending a UsedCars object, a new used car will be created")
     @ApiResponse(responseCode = "201", description = "Used car created" )
     @ApiResponse(responseCode = "404", description = "Used car not created" )
+    @Transactional
     @PostMapping
     public ResponseEntity<UsedCarsData> createUsedCar(@RequestBody @Valid UsedCarsData usedCarsData, UriComponentsBuilder uriBuilder) {
         var usedCars = new UsedCars(usedCarsData);
@@ -59,6 +61,7 @@ public class UsedCarsController {
     @ApiResponse(responseCode = "200", description = "Used car updated" )
     @ApiResponse(responseCode = "400", description = "Invalid ID supplied" )
     @ApiResponse(responseCode = "404", description = "Used car not found" )
+    @Transactional
     @PutMapping
     public ResponseEntity<UsedCarsData> updateUsedCar(@RequestBody @Valid Long id) {
         UsedCars usedCars = service.getById(id);
@@ -70,10 +73,38 @@ public class UsedCarsController {
     @ApiResponse(responseCode = "200", description = "Used car deleted" )
     @ApiResponse(responseCode = "400", description = "Invalid ID supplied" )
     @ApiResponse(responseCode = "404", description = "Used car not found" )
+    @Transactional
     @DeleteMapping("/{id}")
     public void deleteUsedCar(@PathVariable Long id) {
         UsedCars usedCars = service.getById(id);
         service.deleteUsedCar(usedCars);
+    }
+
+    @Operation(summary = "Search used cars by make", description = "Search used cars by make")
+    @ApiResponse(responseCode = "200", description = "Used cars found" )
+    @ApiResponse(responseCode = "404", description = "Used cars not found" )
+    @GetMapping("/searchByManufacturer/{manufacturer}")
+    public ResponseEntity<Page<UsedCarsData>> searchUsedCarsByMake(@PathVariable String manufacturer, @PageableDefault(size = 10, sort = {"price"}, direction = Sort.Direction.ASC) Pageable page) {
+        Pageable pageable = PageRequest.of(page.getPageNumber(), page.getPageSize(), page.getSort());
+        return ResponseEntity.ok(service.searchByManufacturer(manufacturer, pageable));
+    }
+
+    @Operation(summary = "Search used cars by model", description = "Search used cars by model")
+    @ApiResponse(responseCode = "200", description = "Used cars found" )
+    @ApiResponse(responseCode = "404", description = "Used cars not found" )
+    @GetMapping("/searchByModel/{model}")
+    public ResponseEntity<Page<UsedCarsData>> searchUsedCarsByModel(@PathVariable String model, @PageableDefault(size = 10, sort = {"price"}, direction = Sort.Direction.ASC) Pageable page) {
+        Pageable pageable = PageRequest.of(page.getPageNumber(), page.getPageSize(), page.getSort());
+        return ResponseEntity.ok(service.searchByModel(model, pageable));
+    }
+
+    @Operation(summary = "Search used cars by year", description = "Search used cars by year")
+    @ApiResponse(responseCode = "200", description = "Used cars found" )
+    @ApiResponse(responseCode = "404", description = "Used cars not found" )
+    @GetMapping("/searchByYear/{year}")
+    public ResponseEntity<Page<UsedCarsData>> searchUsedCarsByYear(@PathVariable int year, @PageableDefault(size = 10, sort = {"price"}, direction = Sort.Direction.ASC) Pageable page) {
+        Pageable pageable = PageRequest.of(page.getPageNumber(), page.getPageSize(), page.getSort());
+        return ResponseEntity.ok(service.searchByYear(year, pageable));
     }
 
 

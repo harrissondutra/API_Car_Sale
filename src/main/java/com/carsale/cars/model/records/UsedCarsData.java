@@ -15,6 +15,12 @@ public record UsedCarsData(
         String color,
         Double price,
         Double mileage,
+        String description,
+        String fuel,
+        String transmission,
+        String doors,
+        String seats,
+        String interior,
 //        @NotNull
         byte[] image,
         Boolean active
@@ -28,6 +34,12 @@ public record UsedCarsData(
                 usedCars.getColor(),
                 usedCars.getPrice(),
                 usedCars.getMileage(),
+                usedCars.getDescription(),
+                usedCars.getFuel(),
+                usedCars.getTransmission(),
+                usedCars.getDoors(),
+                usedCars.getSeats(),
+                usedCars.getInterior(),
                 usedCars.getImage(),
                 usedCars.getActive()
         );

@@ -34,4 +34,16 @@ public class UsedCarsService {
     public void deleteUsedCar(UsedCars usedCars) {
         usedCars.setActive(false);
     }
+
+    public Page<UsedCarsData> searchByManufacturer(String manufacturer, Pageable pageable) {
+        return repository.findByManufacturerAndActiveTrue(manufacturer, pageable).map(UsedCarsData::new);
+    }
+
+    public Page<UsedCarsData> searchByModel(String model, Pageable pageable) {
+        return repository.findByModelAndActiveTrue(model, pageable).map(UsedCarsData::new);
+    }
+
+    public Page<UsedCarsData> searchByYear(int year, Pageable pageable) {
+        return repository.findByYearAndActiveTrue(year, pageable).map(UsedCarsData::new);
+    }
 }

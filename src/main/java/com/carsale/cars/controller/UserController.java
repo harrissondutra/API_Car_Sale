@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +20,13 @@ public class UserController {
     @Autowired
     private UserService service;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Operation(summary = "Create a new user", description = "Create a new user")
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
+        passwordEncoder.encode(user.getPassword());
         service.saveUser(user);
         return ResponseEntity.ok(user);
     }

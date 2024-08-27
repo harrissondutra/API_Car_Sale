@@ -32,6 +32,12 @@ public class UsedCars implements Serializable {
     private String color;
     private Double price;
     private Double mileage;
+    private String description;
+    private String fuel;
+    private String transmission;
+    private String doors;
+    private String seats;
+    private String interior;
     @Lob
     private byte[] image;
     private Boolean active;
@@ -44,6 +50,12 @@ public class UsedCars implements Serializable {
         this.color = usedCarsData.color();
         this.price = usedCarsData.price();
         this.mileage = usedCarsData.mileage();
+        this.description = usedCarsData.description();
+        this.fuel = usedCarsData.fuel();
+        this.transmission = usedCarsData.transmission();
+        this.doors = usedCarsData.doors();
+        this.seats = usedCarsData.seats();
+        this.interior = usedCarsData.interior();
         this.image = usedCarsData.image();
         this.active = usedCarsData.active();
     }
@@ -56,6 +68,12 @@ public class UsedCars implements Serializable {
         if (usedCarsData.color() != null) this.color = usedCarsData.color();
         if (usedCarsData.price() != null) this.price = usedCarsData.price();
         if (usedCarsData.mileage() != null) this.mileage = usedCarsData.mileage();
+        if (usedCarsData.description() != null) this.description = usedCarsData.description();
+        if (usedCarsData.fuel() != null) this.fuel = usedCarsData.fuel();
+        if (usedCarsData.transmission() != null) this.transmission = usedCarsData.transmission();
+        if (usedCarsData.doors() != null) this.doors = usedCarsData.doors();
+        if (usedCarsData.seats() != null) this.seats = usedCarsData.seats();
+        if (usedCarsData.interior() != null) this.interior = usedCarsData.interior();
         if (usedCarsData.image() != null) this.image = usedCarsData.image();
         if (usedCarsData.active() != null) this.active = usedCarsData.active();
 
