@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup flyctl
-        uses: harrissondutra/API_Car_Sale/fly-deploy@main
+        uses: harrissondutra/API_Car_Sale/setup-flyctl@main
 
       - name: Deploy
         run: flyctl deploy
