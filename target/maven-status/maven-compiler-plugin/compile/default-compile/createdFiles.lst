@@ -13,7 +13,9 @@ com\carsale\cars\model\UsedCars$UsedCarsBuilder.class
 com\carsale\cars\model\User$UserBuilder.class
 com\carsale\cars\CarSaleApplication.class
 com\carsale\cars\infra\exceptions\RestExceptionHandler$ValidationErrorData.class
+com\carsale\cars\infra\schedule\SchedulingConfig.class
 com\carsale\cars\infra\exceptions\RestExceptionHandler.class
+com\carsale\cars\infra\schedule\ScheduledTasks.class
 com\carsale\cars\model\records\UserLogin.class
 com\carsale\cars\service\TokenService.class
 com\carsale\cars\service\UsedCarsService.class

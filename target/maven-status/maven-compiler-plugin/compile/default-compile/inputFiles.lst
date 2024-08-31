@@ -4,6 +4,8 @@ E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\contr
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\controller\UserController.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\infra\exceptions\ErrorResponse.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\infra\exceptions\RestExceptionHandler.java
+E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\infra\schedule\ScheduledTasks.java
+E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\infra\schedule\SchedulingConfig.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\infra\security\SecurityFilter.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\infra\security\SpringConfiguration.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\infra\security\TokenData.java
