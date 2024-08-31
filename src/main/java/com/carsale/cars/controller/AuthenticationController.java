@@ -4,6 +4,8 @@ import com.carsale.cars.infra.security.TokenData;
 import com.carsale.cars.model.User;
 import com.carsale.cars.model.records.UserLogin;
 import com.carsale.cars.service.TokenService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/login")
+@Tag(name = "Authentication", description = "Authentication API")
 public class AuthenticationController {
 
 
@@ -28,6 +31,7 @@ public class AuthenticationController {
     }
 
     @PostMapping
+    @Operation(summary = "Login", description = "Login")
     public ResponseEntity<TokenData> login(@RequestBody @Valid UserLogin userLogin) {
         try {
             var authToken = new UsernamePasswordAuthenticationToken(userLogin.username(), userLogin.password());

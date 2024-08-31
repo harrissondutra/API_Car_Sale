@@ -1,5 +1,8 @@
 package com.carsale.cars.infra.security;
 
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
+import io.swagger.v3.oas.models.PathItem;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -18,6 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableMethodSecurity(securedEnabled = true)
 @EnableWebSecurity
+@SecurityScheme(name = SpringConfiguration.SECURITY, type = SecuritySchemeType.HTTP, bearerFormat = "JWT", scheme = "bearer")
 public class SpringConfiguration {
 
     private final SecurityFilter securityFilter;
@@ -26,14 +30,17 @@ public class SpringConfiguration {
         this.securityFilter = securityFilter;
     }
 
+    public static final String SECURITY = "bearerAuth";
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorizeRequests -> {
                     authorizeRequests.requestMatchers("/login").permitAll();
+                    authorizeRequests.requestMatchers(HttpMethod.POST,"/users").permitAll();
+                    authorizeRequests.requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "swagger-ui.html").permitAll();
                     authorizeRequests.requestMatchers(HttpMethod.DELETE, "/users").hasRole("ADMIN");
-                    authorizeRequests.requestMatchers(HttpMethod.DELETE,"/used-cars").hasRole("ADMIN");
                     authorizeRequests.anyRequest().authenticated();
                 })
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
@@ -47,6 +54,6 @@ public class SpringConfiguration {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-       return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();
     }
 }
