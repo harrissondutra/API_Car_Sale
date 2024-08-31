@@ -2,7 +2,6 @@ package com.carsale.cars.infra.security;
 
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
-import io.swagger.v3.oas.models.PathItem;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -38,7 +37,7 @@ public class SpringConfiguration {
                 .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorizeRequests -> {
                     authorizeRequests.requestMatchers("/login").permitAll();
-                    authorizeRequests.requestMatchers(HttpMethod.POST,"/users").permitAll();
+                    authorizeRequests.requestMatchers(HttpMethod.POST, "/users").permitAll();
                     authorizeRequests.requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "swagger-ui.html").permitAll();
                     authorizeRequests.requestMatchers(HttpMethod.DELETE, "/users").hasRole("ADMIN");
                     authorizeRequests.anyRequest().authenticated();
