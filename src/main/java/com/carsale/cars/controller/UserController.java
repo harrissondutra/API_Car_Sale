@@ -56,6 +56,7 @@ public class UserController {
                 return ResponseEntity.badRequest().body(new ErrorResponse("User already exists"));
             }
             var user = new User(userLogin.username(), passwordEncoder.encode(userLogin.password()));
+            user.setActive(true);
             service.saveUser(user);
             return ResponseEntity.ok(new UserData(user));
         }catch (Exception e){
