@@ -1,6 +1,6 @@
 CREATE SCHEMA IF NOT EXISTS carsale;
 
-CREATE SEQUENCE IF NOT EXISTS carsale.users_seq START WITH 1 INCREMENT BY 1;
+
 
 CREATE TABLE IF NOT EXISTS carsale.used_cars
 (
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS carsale.used_cars
     image        OID,
     CONSTRAINT pk_used_cars PRIMARY KEY (id)
 );
-
+CREATE SEQUENCE IF NOT EXISTS carsale.users_seq START WITH 1 INCREMENT BY 1;
 CREATE TABLE IF NOT EXISTS carsale.users
 (
     id       BIGINT NOT NULL,

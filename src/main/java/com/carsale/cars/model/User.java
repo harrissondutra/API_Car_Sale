@@ -1,16 +1,11 @@
 package com.carsale.cars.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Serial;
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
@@ -23,18 +18,20 @@ import java.util.List;
 @EqualsAndHashCode(of = "id")
 @Table(name = "users", schema = "carsale")
 @Entity(name = "User")
-public class User implements Serializable, UserDetails {
-
-    @Serial
-    private static final long serialVersionUID = 598109323580992603L;
+public class User implements UserDetails {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String username;
     private String password;
     private Boolean active;
+
+    public User(String username, String encode) {
+        this.username = username;
+        this.password = encode;
+    }
 
     @Override
     public String getUsername() {

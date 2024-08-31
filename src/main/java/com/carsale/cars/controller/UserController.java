@@ -1,13 +1,15 @@
 package com.carsale.cars.controller;
 
+import com.carsale.cars.infra.exceptions.ErrorResponse;
 import com.carsale.cars.infra.security.SpringConfiguration;
 import com.carsale.cars.model.User;
+import com.carsale.cars.model.records.UserData;
 import com.carsale.cars.model.records.UserLogin;
 import com.carsale.cars.repository.UserRepository;
 import com.carsale.cars.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import io.swagger.v3.oas.annotations.security.SecurityRequirements;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,24 +34,24 @@ public class UserController {
     private UserRepository userRepository;
 
     @Operation(summary = "Create a new user", description = "Create a new user")
+    @ApiResponse(responseCode = "201", description = "User created")
+    @ApiResponse(responseCode = "400", description = "User not created")
+    @ApiResponse(responseCode = "404", description = "User already exists")
+    @ApiResponse(responseCode = "401", description = "Unauthorized")
+    @ApiResponse(responseCode = "403", description = "Forbidden")
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody UserLogin userLogin) {
+    public ResponseEntity createUser(@RequestBody UserLogin userLogin) {
 
-        var userDetails = userRepository.findByUsername(userLogin.username());
-
-        if(userDetails == null){
-            var user = User.builder()
-                    .id(null)
-                    .username(userLogin.username())
-                    .password(passwordEncoder.encode(userLogin.password()))
-                    .active(true)
-                    .build();
-
+        try{
+            if (userRepository.findByUsername(userLogin.username()) != null) {
+                return ResponseEntity.badRequest().body(new ErrorResponse("User already exists"));
+            }
+            var user = new User(userLogin.username(), passwordEncoder.encode(userLogin.password()));
             service.saveUser(user);
-            return ResponseEntity.ok(user);
-        }else{
-            return ResponseEntity.badRequest().body(null);
+            return ResponseEntity.ok(new UserData(user));
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(new ErrorResponse("User not created"));
         }
-
     }
 }
+

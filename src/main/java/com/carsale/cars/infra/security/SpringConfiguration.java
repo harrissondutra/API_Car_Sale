@@ -37,7 +37,6 @@ public class SpringConfiguration {
                 .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorizeRequests -> {
                     authorizeRequests.requestMatchers("/login").permitAll();
-                    authorizeRequests.requestMatchers(HttpMethod.POST, "/users").permitAll();
                     authorizeRequests.requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "swagger-ui.html").permitAll();
                     authorizeRequests.requestMatchers(HttpMethod.DELETE, "/users").hasRole("ADMIN");
                     authorizeRequests.anyRequest().authenticated();
