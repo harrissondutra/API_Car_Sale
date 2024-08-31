@@ -8,10 +8,13 @@ import com.carsale.cars.model.records.UserLogin;
 import com.carsale.cars.repository.UserRepository;
 import com.carsale.cars.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,9 +37,15 @@ public class UserController {
     private UserRepository userRepository;
 
     @Operation(summary = "Create a new user", description = "Create a new user")
-    @ApiResponse(responseCode = "201", description = "User created")
-    @ApiResponse(responseCode = "400", description = "User not created")
-    @ApiResponse(responseCode = "404", description = "User already exists")
+    @ApiResponse(responseCode = "201", description = "User created",
+            content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                    schema = @Schema(implementation = UserData.class)))
+    @ApiResponse(responseCode = "400", description = "User not created",
+            content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                    schema = @Schema(implementation = ErrorResponse.class)))
+    @ApiResponse(responseCode = "404", description = "User already exists",
+            content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                    schema = @Schema(implementation = ErrorResponse.class)))
     @ApiResponse(responseCode = "401", description = "Unauthorized")
     @ApiResponse(responseCode = "403", description = "Forbidden")
     @PostMapping
