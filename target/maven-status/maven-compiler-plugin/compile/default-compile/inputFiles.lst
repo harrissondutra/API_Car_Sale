@@ -2,12 +2,14 @@ E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\CarSa
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\controller\AuthenticationController.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\controller\UsedCarsController.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\controller\UserController.java
+E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\infra\exceptions\ErrorResponse.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\infra\exceptions\RestExceptionHandler.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\infra\security\SecurityFilter.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\infra\security\SpringConfiguration.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\infra\security\TokenData.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\infra\swagger\SwaggerConfig.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\model\records\UsedCarsData.java
+E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\model\records\UserData.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\model\records\UserLogin.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\model\UsedCars.java
 E:\Documentos\Desenvolvimento\Java\Car Sale\src\main\java\com\carsale\cars\model\User.java
