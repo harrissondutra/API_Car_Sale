@@ -33,7 +33,7 @@ public class AuthenticationController {
 
     @PostMapping
     @ApiResponse(responseCode = "200", description = "Login successful")
-    @Operation(summary = "Login", description = "Login\n\n Defaul user: admin\n\n Default password: admin")
+    @Operation(summary = "Login", description = "Default user: admin\n\n Default password: admin")
     public ResponseEntity<TokenData> login(@RequestBody @Valid UserLogin userLogin) {
         try {
             var authToken = new UsernamePasswordAuthenticationToken(userLogin.username(), userLogin.password());
