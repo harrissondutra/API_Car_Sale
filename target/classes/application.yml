@@ -1,4 +1,7 @@
 spring:
+  task:
+    scheduling:
+      cron: 0 */14 * * * *
   flyway:
     baseline-on-migrate: true
   config:
