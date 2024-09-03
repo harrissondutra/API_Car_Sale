@@ -33,7 +33,7 @@ public class SwaggerConfig {
     public GroupedOpenApi api(RequestMappingHandlerMapping handlerMapping) {
         return GroupedOpenApi.builder()
                 .group("api")
-                .pathsToMatch("/users/**", "/login/**")
+                .pathsToMatch("/users/**", "/login/**, ", "/used-cars/**")
                 .packagesToScan("com.carsale.cars.controller")
                 .addOpenApiCustomizer(filterControllers(handlerMapping))
                 .build();
